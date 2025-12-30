@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.fragilemind.controller.GameController"
+            stylesheets="@style.css"
+            styleClass="root-panel">
+
+    <top>
+        <HBox spacing="50" alignment="CENTER" styleClass="top-bar">
+            <padding><Insets top="15" bottom="15"/></padding>
+            <Label fx:id="sanityLabel" text="SANITY: 100%" styleClass="stat-sanity"/>
+            <Label fx:id="conscienceLabel" text="CONSCIENCE: 50%" styleClass="stat-conscience"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <content>
+                <TextArea fx:id="storyArea" wrapText="true" editable="false" styleClass="story-text"/>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox fx:id="choicesBox" spacing="15" alignment="CENTER" styleClass="bottom-box">
+            <padding><Insets top="20" bottom="30" left="50" right="50"/></padding>
+            </VBox>
+    </bottom>
+
+</BorderPane>

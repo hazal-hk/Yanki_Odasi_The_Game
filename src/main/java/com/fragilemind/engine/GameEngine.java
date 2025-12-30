@@ -59,7 +59,7 @@ public class GameEngine {
 
                     // Kilit Kontrolü
                     if (selectedChoice.isLocked(player)) {
-                        System.out.println("\n>> ⛔ LOCKED! Your mind refuses to take this path.");
+                        System.out.println("\n>> LOCKED! Your mind refuses to take this path.");
                         System.out.println(">> (Press Enter to try again)");
                         scanner.nextLine(); 
                     } else {
