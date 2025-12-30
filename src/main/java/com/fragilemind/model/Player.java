@@ -18,6 +18,9 @@ public class Player extends Entity {
     // YENİ: Hikaye kararlarını tutan hafıza
     private Map<String, Boolean> storyFlags;
 
+    // YENİ: Olay günlüğü (Action Log)
+    private StringBuilder actionLog;
+
     public Player(String name) {
         // ID otomatik "player_01" olsun, Açıklaması sabit.
         super("player_01", name, "The Architect. Struggling with reality.");
@@ -27,12 +30,26 @@ public class Player extends Entity {
         this.conscience = 50;  
         this.inventory = new ArrayList<>(); // Listeyi başlatıyoruz
         this.storyFlags = new HashMap<>();
+        this.actionLog = new StringBuilder(); // Başlat
     }
 
-    // Bir olayı/kararı kaydet (Örn: "Admitted_Guilt" -> true)
+    // YENİ METOT: Terminal yerine buraya yazacağız
+    public void log(String message) {
+        // Hem terminale yaz (debug için) hem de hafızaya al (arayüz için)
+        System.out.println(message); 
+        this.actionLog.append(message).append("\n");
+    }
+
+    // YENİ METOT: Biriken logları al ve temizle
+    public String flushLog() {
+        String logs = actionLog.toString();
+        actionLog.setLength(0); // Temizle
+        return logs;
+    }
+
     public void setFlag(String key, boolean value) {
         storyFlags.put(key, value);
-        System.out.println("\t>>> [MEMORY FORMED]: " + key);
+        log("\t>>> [MEMORY FORMED]: " + key); // Burayı da log yaptık
     }
 
     // Bir olayın olup olmadığını kontrol et
@@ -60,9 +77,8 @@ public class Player extends Entity {
     // Envanter Yönetimi
     public void addItem(Item item) {
         inventory.add(item);
-        System.out.println("\t[INVENTORY] Added: " + item.getName());
+        log("\t[INVENTORY] Added: " + item.getName()); // Burayı da log yaptık
     }
-
     // Stream API kullanımı (Modern Java) - Listede arama yapar
     public boolean hasItem(String itemName) {
         return inventory.stream()
