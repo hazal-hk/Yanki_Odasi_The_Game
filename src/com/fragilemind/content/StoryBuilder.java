@@ -1,4 +1,4 @@
-package src.com.fragilemind.content;
+package com.fragilemind.content;
 
 public class StoryBuilder {
     

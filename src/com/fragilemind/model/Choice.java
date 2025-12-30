@@ -1,4 +1,4 @@
-package src.com.fragilemind.model;
+package com.fragilemind.model;
 
 public class Choice {
     

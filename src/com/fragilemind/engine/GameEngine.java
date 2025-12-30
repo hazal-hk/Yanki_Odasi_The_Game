@@ -1,4 +1,4 @@
-package src.com.fragilemind.engine;
+package com.fragilemind.engine;
 
 public class GameEngine {
     

@@ -1,5 +1,10 @@
-package src.com.fragilemind.interfaces;
+package com.fragilemind.interfaces;
 
-public interface Effect {
-    
+import com.fragilemind.model.Player;
+import java.util.function.Consumer;
+
+// FUNCTIONAL INTERFACE: Bir seçimin sonucunu oyuncuya uygular.
+@FunctionalInterface
+public interface Effect extends Consumer<Player> {
+    // Java'nın Consumer arayüzünden 'accept(Player p)' metodunu miras alır.
 }

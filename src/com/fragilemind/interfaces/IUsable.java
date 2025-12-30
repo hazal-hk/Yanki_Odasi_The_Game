@@ -1,4 +1,4 @@
-package src.com.fragilemind.interfaces;
+package com.fragilemind.interfaces;
 
 public interface IUsable {
     

@@ -1,4 +1,4 @@
-package src.com.fragilemind.plugin;
+package com.fragilemind.plugin;
 
 public class IGamePlugin {
     
